@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Student Management Website",
       description: "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com"
+      technologies: ["React", "Node.js","Supabase","Tailwind CSS"],
+      githubUrl: "https://github.com/Akash8710/academic-dashboard-lite",
+      liveUrl: "academic-dashboard-lite.vercel.app"
     },
     {
       title: "Task Management App",
