@@ -47,8 +47,7 @@ const Skills = () => {
   ];
 
   const tools = [
-    "VS Code", "Figma", "Postman", "Supabase", "Vercel", "GitHub", 
-    "Slack", "Notion", "Linear", "Prisma", "Redux", "Zustand"
+    "VS Code", "Postman", "Supabase", "Vercel", "GitHub", 
   ];
 
   return (
