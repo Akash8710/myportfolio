@@ -16,15 +16,18 @@ const Hero = () => {
         <div className="text-center max-w-4xl mx-auto">
           <div className="animate-fade-in">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6">
-              Full Stack
-              <span className="block text-primary">Developer</span>
+              <span className="inline-block animate-[fade-in_0.6s_ease-out]">Full</span>{" "}
+              <span className="inline-block animate-[fade-in_0.6s_ease-out_0.2s_both]">Stack</span>
+              <span className="block text-primary">
+                <span className="inline-block animate-[fade-in_0.6s_ease-out_0.4s_both]">Developer</span>
+              </span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed animate-[fade-in_0.6s_ease-out_0.6s_both]">
               I craft digital experiences with modern technologies, building scalable web applications from concept to deployment.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-[fade-in_0.6s_ease-out_0.8s_both]">
               <Button 
                 onClick={scrollToProjects}
                 size="lg" 
@@ -59,7 +62,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="animate-bounce">
+            <div className="animate-bounce animate-[fade-in_0.6s_ease-out_1s_both]">
               <ArrowDown size={32} className="mx-auto text-muted-foreground" />
             </div>
           </div>

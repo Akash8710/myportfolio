@@ -1,34 +1,47 @@
 
+import { 
+  Code, 
+  Database, 
+  Server, 
+  Cloud, 
+  GitBranch,
+  Layers,
+  Globe,
+  Smartphone,
+  Palette,
+  Monitor
+} from "lucide-react";
+
 const Skills = () => {
   const skillCategories = [
     {
       title: "Frontend",
       skills: [
-        "React",
-        "TypeScript", 
-        "Next.js",
-        "Tailwind CSS",
-        "Vue.js"
+        { name: "React", icon: Code },
+        { name: "TypeScript", icon: Code }, 
+        { name: "Next.js", icon: Globe },
+        { name: "Tailwind CSS", icon: Palette },
+        { name: "Vue.js", icon: Smartphone }
       ]
     },
     {
       title: "Backend", 
       skills: [
-        "Node.js",
-        "Python",
-        "Express.js",
-        "FastAPI",
-        "GraphQL"
+        { name: "Node.js", icon: Server },
+        { name: "Python", icon: Code },
+        { name: "Express.js", icon: Server },
+        { name: "FastAPI", icon: Server },
+        { name: "GraphQL", icon: Layers }
       ]
     },
     {
       title: "Database & DevOps",
       skills: [
-        "PostgreSQL",
-        "MongoDB",
-        "Docker",
-        "AWS",
-        "Git"
+        { name: "PostgreSQL", icon: Database },
+        { name: "MongoDB", icon: Database },
+        { name: "Docker", icon: Layers },
+        { name: "AWS", icon: Cloud },
+        { name: "Git", icon: GitBranch }
       ]
     }
   ];
@@ -58,14 +71,18 @@ const Skills = () => {
                   {category.title}
                 </h3>
                 <div className="grid grid-cols-1 gap-3">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div 
-                      key={skillIndex}
-                      className="text-center px-4 py-2 bg-muted/30 rounded-md text-foreground font-medium"
-                    >
-                      {skill}
-                    </div>
-                  ))}
+                  {category.skills.map((skill, skillIndex) => {
+                    const IconComponent = skill.icon;
+                    return (
+                      <div 
+                        key={skillIndex}
+                        className="flex items-center justify-center px-4 py-3 bg-muted/30 rounded-md text-foreground font-medium hover:bg-muted/50 transition-colors duration-200"
+                      >
+                        <IconComponent size={18} className="mr-3 text-primary" />
+                        {skill.name}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             ))}
