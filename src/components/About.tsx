@@ -44,7 +44,7 @@ const About = () => {
                 Building the Future, One Line at a Time
               </h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-              Hello! I am a passionate Full Stack Developer with a strong foundation in both front-end and back-end technologies. With [X years] of experience in the industry, I thrive on creating dynamic and responsive web applications that provide exceptional user experiences.
+              Hello! I am a passionate Full Stack Developer with a strong foundation in both front-end and back-end technologies. I thrive on creating dynamic and responsive web applications that provide exceptional user experiences.
               </p>
               <p className="text-muted-foreground leading-relaxed">
 My journey in web development began with a fascination for how things work behind the scenes. I enjoy transforming ideas into reality by leveraging my skills in HTML, CSS, and JavaScript for front-end development, along with my expertise in server-side languages like Node.js and Python for back-end solutions. I am also well-versed in database management, utilizing both SQL and NoSQL databases to ensure efficient data handling.
