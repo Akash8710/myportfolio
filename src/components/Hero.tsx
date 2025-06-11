@@ -13,7 +13,7 @@ const Hero = () => {
   const downloadCV = () => {
     // Create a temporary link element to trigger download
     const link = document.createElement('a');
-    link.href = '/cv.pdf'; // You'll need to add your CV file to the public folder
+    link.href = '"C:\Users\AKASH\Desktop\CV_First (2).pdf"'; // You'll need to add your CV file to the public folder
     link.download = 'CV.pdf';
     document.body.appendChild(link);
     link.click();
@@ -49,7 +49,7 @@ const Hero = () => {
               
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Akash8710"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full border border-border hover:bg-accent transition-all duration-200 hover:scale-110"
@@ -57,7 +57,7 @@ const Hero = () => {
                   <Github size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/akash-rao-9b5838298/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full border border-border hover:bg-accent transition-all duration-200 hover:scale-110"
@@ -65,7 +65,7 @@ const Hero = () => {
                   <Linkedin size={24} />
                 </a>
                 <a
-                  href="mailto:hello@example.com"
+                  href="akashrao8710@gmail.com"
                   className="p-3 rounded-full border border-border hover:bg-accent transition-all duration-200 hover:scale-110"
                 >
                   <Mail size={24} />
