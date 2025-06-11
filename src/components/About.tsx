@@ -60,15 +60,15 @@ const About = () => {
               <div className="space-y-4">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Projects Completed</span>
-                  <span className="font-semibold text-foreground">50+</span>
+                  <span className="font-semibold text-foreground">3</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Years Experience</span>
-                  <span className="font-semibold text-foreground">3+</span>
+                  <span className="font-semibold text-foreground">Fresher</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Technologies Mastered</span>
-                  <span className="font-semibold text-foreground">15+</span>
+                  <span className="font-semibold text-foreground">12</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Coffee Consumed</span>
