@@ -10,7 +10,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
       technologies: ["React", "Node.js","Supabase","Tailwind CSS"],
       githubUrl: "https://github.com/Akash8710/academic-dashboard-lite",
-      liveUrl: "https://akashraoportfolio.vercel.app/"
+      liveUrl: "https://academic-dashboard-lite.vercel.app/"
     },
     {
       title: "Task Management App",
