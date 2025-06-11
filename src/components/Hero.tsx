@@ -1,5 +1,5 @@
 
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -10,6 +10,16 @@ const Hero = () => {
     }
   };
 
+  const downloadCV = () => {
+    // Create a temporary link element to trigger download
+    const link = document.createElement('a');
+    link.href = '/cv.pdf'; // You'll need to add your CV file to the public folder
+    link.download = 'CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +28,7 @@ const Hero = () => {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6">
               <span className="inline-block animate-[fade-in_0.6s_ease-out]">Full</span>{" "}
               <span className="inline-block animate-[fade-in_0.6s_ease-out_0.2s_both]">Stack</span>
-              <span className="block text-primary">
+              <span className="block text-primary animate-[blink_1s_infinite]">
                 <span className="inline-block animate-[fade-in_0.6s_ease-out_0.4s_both]">Developer</span>
               </span>
             </h1>
@@ -29,11 +39,12 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-[fade-in_0.6s_ease-out_0.8s_both]">
               <Button 
-                onClick={scrollToProjects}
+                onClick={downloadCV}
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg flex items-center gap-2"
               >
-                View My Work
+                <Download size={20} />
+                Download CV
               </Button>
               
               <div className="flex space-x-4">
