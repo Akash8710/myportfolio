@@ -20,8 +20,8 @@ const Skills = () => {
         { name: "React", icon: Code },
         { name: "TypeScript", icon: Code }, 
         { name: "Next.js", icon: Globe },
-        { name: "Tailwind CSS", icon: Palette },
-        { name: "Vue.js", icon: Smartphone }
+        { name: "Tailwind CSS", icon: Palette }
+      
       ]
     },
     {
@@ -29,9 +29,8 @@ const Skills = () => {
       skills: [
         { name: "Node.js", icon: Server },
         { name: "Python", icon: Code },
-        { name: "Express.js", icon: Server },
-        { name: "FastAPI", icon: Server },
-        { name: "GraphQL", icon: Layers }
+        { name: "Express.js", icon: Server }
+        
       ]
     },
     {
@@ -39,8 +38,6 @@ const Skills = () => {
       skills: [
         { name: "PostgreSQL", icon: Database },
         { name: "MongoDB", icon: Database },
-        { name: "Docker", icon: Layers },
-        { name: "AWS", icon: Cloud },
         { name: "Git", icon: GitBranch }
       ]
     }
