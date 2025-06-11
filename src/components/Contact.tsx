@@ -28,17 +28,12 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com"
+      href: "https://github.com/Akash8710"
     },
     {
       icon: Linkedin,
       label: "LinkedIn", 
-      href: "https://linkedin.com"
-    },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      href: "https://twitter.com"
+      href: "https://www.linkedin.com/in/akash-rao-9b5838298/"
     }
   ];
 
