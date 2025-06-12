@@ -79,22 +79,7 @@ const Projects = () => {
                     className="w-full h-48 object-cover"
                   />
                   <div className="absolute inset-0 bg-primary/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-white rounded-full text-primary hover:bg-gray-100 transition-colors"
-                    >
-                      <Github size={20} />
-                    </a>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-white rounded-full text-primary hover:bg-gray-100 transition-colors"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
+                    
                   </div>
                 </div>
                 
