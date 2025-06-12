@@ -64,7 +64,7 @@ My journey in web development began with a fascination for how things work behin
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Technologies Mastered</span>
-                  <span className="font-semibold text-foreground">12</span>
+                  <span className="font-semibold text-foreground">10</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Coffee Consumed</span>
