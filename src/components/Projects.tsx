@@ -70,7 +70,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div 
                 key={index}
-                className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:scale-105"
+                className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-all duration-300"
               >
                 <div className="relative overflow-hidden">
                   <img 
