@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { formatDistanceToNow } from "date-fns";
+import { exportToCSV, importFromCSV, appendToCSV } from "@/utils/csvHandler";
 import {
   Table,
   TableBody,
@@ -12,7 +13,9 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Calendar, User, MessageSquare } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Mail, Calendar, User, MessageSquare, Download, Upload, FileText } from "lucide-react";
 
 interface ContactSubmission {
   id: string;
@@ -26,6 +29,8 @@ interface ContactSubmission {
 const ContactMessages = () => {
   const [messages, setMessages] = useState<ContactSubmission[]>([]);
   const [loading, setLoading] = useState(true);
+  const [csvData, setCsvData] = useState<ContactSubmission[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -44,6 +49,17 @@ const ContactMessages = () => {
       }
 
       setMessages(data || []);
+      // Auto-append new messages to CSV
+      if (data && data.length > 0) {
+        const newMessages = data.filter(msg => !csvData.find(csvMsg => csvMsg.id === msg.id));
+        if (newMessages.length > 0) {
+          const updatedCsvData = [...csvData, ...newMessages];
+          setCsvData(updatedCsvData);
+          if (csvData.length > 0) { // Only export if there was existing CSV data
+            exportToCSV(updatedCsvData, 'contactmsg.csv');
+          }
+        }
+      }
     } catch (error) {
       console.error('Error fetching messages:', error);
       toast({
@@ -53,6 +69,51 @@ const ContactMessages = () => {
       });
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleExportCSV = () => {
+    exportToCSV(messages, 'contactmsg.csv');
+    setCsvData(messages);
+    toast({
+      title: "Export Successful",
+      description: "Contact messages exported to contactmsg.csv",
+    });
+  };
+
+  const handleImportCSV = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      try {
+        importFromCSV(file, (data) => {
+          setCsvData(data);
+          toast({
+            title: "Import Successful",
+            description: `Imported ${data.length} messages from CSV`,
+          });
+        });
+      } catch (error) {
+        toast({
+          title: "Import Failed",
+          description: "Failed to import CSV file. Please check the format.",
+          variant: "destructive"
+        });
+      }
+    }
+  };
+
+  const handleAppendToCSV = () => {
+    if (messages.length > 0) {
+      const updatedData = appendToCSV(messages[0], csvData);
+      setCsvData(updatedData);
+      toast({
+        title: "Message Appended",
+        description: "Latest message appended to contactmsg.csv",
+      });
     }
   };
 
@@ -71,13 +132,53 @@ const ContactMessages = () => {
     <div className="container mx-auto px-4 py-8">
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <MessageSquare className="h-5 w-5" />
-            Contact Messages
-            <Badge variant="secondary" className="ml-auto">
-              {messages.length} total
-            </Badge>
-          </CardTitle>
+          <div className="flex items-center justify-between">
+            <CardTitle className="flex items-center gap-2">
+              <MessageSquare className="h-5 w-5" />
+              Contact Messages
+              <Badge variant="secondary">
+                {messages.length} total
+              </Badge>
+            </CardTitle>
+            <div className="flex gap-2">
+              <Button
+                onClick={handleExportCSV}
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <Download className="h-4 w-4" />
+                Export CSV
+              </Button>
+              <Button
+                onClick={handleImportCSV}
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <Upload className="h-4 w-4" />
+                Import CSV
+              </Button>
+              {csvData.length > 0 && (
+                <Button
+                  onClick={handleAppendToCSV}
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  <FileText className="h-4 w-4" />
+                  Append to CSV
+                </Button>
+              )}
+            </div>
+          </div>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".csv"
+            onChange={handleFileChange}
+            style={{ display: 'none' }}
+          />
         </CardHeader>
         <CardContent>
           {messages.length === 0 ? (
