@@ -13,7 +13,7 @@ const Hero = () => {
   const downloadCV = () => {
     // Create a temporary link element to trigger download
     const link = document.createElement('a');
-    link.href = '\resume(2).pdf'; // You'll need to add your CV file to the public folder
+    link.href = 'public/resume_final_FS (3).pdf.pdf'; // You'll need to add your CV file to the public folder
     link.download = 'public/resume_final_FS (3).pdf';
     document.body.appendChild(link);
     link.click();
