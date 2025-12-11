@@ -1,7 +1,6 @@
 
 import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const Hero = () => {
   const scrollToProjects = () => {
     const element = document.querySelector("#projects");
